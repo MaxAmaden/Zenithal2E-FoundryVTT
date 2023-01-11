@@ -1,0 +1,121 @@
+{{!-- Character Image --}}
+<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+
+<div class="header-fields">
+
+    {{!-- Character Name --}}
+    <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" style="text-align:center"/></h1>
+    
+    {{!-- Core Columns (x4) --}}
+    <div class="resources grid grid-4col" style="gap:20px; padding-left: 10px; padding-right: 10px">
+
+        {{!-- Origin --}}
+        <div class="flex-group-center">
+            <label for="data.health.value" class="resource-label">Origin</label>
+            <div class="flexrow flex-center flex-between">
+            <input type="text" name="data.origin" value="{{data.origin}}"/>
+            </div>
+        </div>
+
+        {{!-- Element --}}
+        <div class="flex-group-center">
+            <label for="data.element" class="resource-label">Element</label>
+            <div class="flexrow flex-center flex-between">
+            <select name="data.element" value="{{data.element}}" style="min-width:20px; text-align:center;">
+                {{#select data.element}}
+                <optgroup label="RAW">
+                    <option value="raw">RAW</option>
+                </optgroup>
+                
+                <optgroup label="FIRE">
+                    <option value="fire-flame">Flame</option>
+                    <option value="fire-smoke">Smoke</option>
+                    <option value="fire-solar">Solar</option>
+                </optgroup>
+                
+                <optgroup label="ICE">
+                    <option value="ice-cryo">Cryo</option>
+                    <option value="ice-blizzard">Blizzard</option>
+                    <option value="ice-lunar">Lunar</option>
+                </optgroup>
+                
+                <optgroup label="WATER">
+                    <option value="water-hydro">Hydro</option>
+                    <option value="water-mud">Mud</option>
+                    <option value="water-blood">Blood</option>
+                </optgroup>
+                
+                <optgroup label="LIGHTNING">
+                    <option value="lightning-electric">Electric</option>
+                    <option value="lightning-thunder">Thunder</option>
+                    <option value="lightning-paralysis">Paralysis</option>
+                </optgroup>
+                
+                <optgroup label="POISON">
+                    <option value="poison-acid">Acid</option>
+                    <option value="poison-toxic">Toxic</option>
+                    <option value="poison-sleep">Sleep</option>
+                </optgroup>
+                
+                <optgroup label="BLAST">
+                    <option value="blast-explosion">Explosion</option>
+                    <option value="blast-slime">Slime</option>
+                    <option value="blast-overdrive">Overdrive</option>
+                </optgroup>
+                
+                <optgroup label="SONIC">
+                    <option value="sonic-sound">Sound</option>
+                    <option value="sonic-wind">Wind</option>
+                    <option value="sonic-concussion">Concussion</option>
+                </optgroup>
+                
+                <optgroup label="RADIATION">
+                    <option value="radiation-mutation">Mutation</option>
+                    <option value="radiation-disintegration">Disintegration</option>
+                    <option value="radiation-chaos">Chaos</option>
+                </optgroup>
+                
+                <optgroup label="MENTAL">
+                    <option value="mental-hypnotism">Hypnotism</option>
+                    <option value="mental-confusion">Confusion</option>
+                    <option value="mental-madness">Madness</option>
+                </optgroup>
+                
+                <optgroup label="DRAGON">
+                    <option value="dragon-destruction">Destruction</option>
+                    <option value="dragon-frenzy">Frenzy</option>
+                    <option value="dragon-void">Void</option>
+                </optgroup>
+                
+                <optgroup label="WILD">
+                    <option value="wild">WILD</option>
+                <optgroup>
+                {{/select}}
+            </select>
+            </div>
+        </div>
+
+        {{!-- Classification --}}
+        <div class="flex-group-center">
+            <label for="data.classification" class="resource-label">Classification</label>
+            <div class="flexrow flex-center flex-between">
+            <select name="data.classification" value="{{data.classification}}" style="min-width:20px; text-align:center;">
+                {{#select data.classification}}
+                <option value="hunter">Hunter</option>
+                <option value="handler">Handler</option>
+                <option value="guildstaff">Guild Staff</option>
+                {{/select}}
+            </select>
+            </div>
+        </div>
+
+        {{!-- Rank --}}
+        <div class="flex-group-center">
+            <label for="data.rank.value" class="resource-label">Rank</label>
+            <div class="flexrow flex-center flex-between">
+            <input type="text" name="data.rank.value" value="{{data.rank.value}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+    </div>
+</div>

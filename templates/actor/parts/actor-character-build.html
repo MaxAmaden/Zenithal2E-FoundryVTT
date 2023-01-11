@@ -1,0 +1,200 @@
+<div class="grid grid-3col" style="gap:20px">
+
+  {{!-- Column 1 : ATTRIBUTES --}}
+  <div class="flexcol">
+    <div class="grid grid-2col">
+
+      {{!-- Column 1.1 : MUS/AGI/END --}}
+      <div class="flexcol" style="gap:20px">
+        <div class="flexcol flex-group-center">
+          <label for="data.attributes.muscle.base" class="resource-label">MUSCLE</label>
+          <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
+          <div class="flexrow" style="max-width:50px; text-align:center">
+            <input type="text" name="data.attributes.muscle.base" value="{{data.attributes.muscle.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+          </div>
+        </div>
+
+        <div class="flexcol flex-group-center">
+          <label for="data.attributes.agility.base" class="resource-label">AGILITY</label>
+          <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
+          <div class="flexrow" style="max-width:50px; text-align:center">
+            <input type="text" name="data.attributes.agility.base" value="{{data.attributes.agility.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+          </div>
+        </div>
+
+        <div class="flexcol flex-group-center">
+          <label for="data.attributes.endurance.base" class="resource-label">ENDURANCE</label>
+          <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
+          <div class="flexrow" style="max-width:50px; text-align:center">
+            <input type="text" name="data.attributes.endurance.base" value="{{data.attributes.endurance.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Column 1.2 : CUN/SKI/PRE --}}
+      <div class="flexcol" style="gap:20px">
+        <div class="flexcol flex-group-center">
+          <label for="data.attributes.cunning.base" class="resource-label">CUNNING</label>
+          <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
+          <div class="flexrow" style="max-width:50px; text-align:center">
+            <input type="text" name="data.attributes.cunning.base" value="{{data.attributes.cunning.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+          </div>
+        </div>
+
+        <div class="flexcol flex-group-center">
+          <label for="data.attributes.skill.base" class="resource-label">SKILL</label>
+          <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
+          <div class="flexrow" style="max-width:50px; text-align:center">
+            <input type="text" name="data.attributes.skill.base" value="{{data.attributes.skill.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+          </div>
+        </div>
+
+        <div class="flexcol flex-group-center">
+          <label for="data.attributes.presence.base" class="resource-label">PRESENCE</label>
+          <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
+          <div class="flexrow" style="max-width:50px; text-align:center">
+            <input type="text" name="data.attributes.presence.base" value="{{data.attributes.presence.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {{{data.pointsRemainingMessage}}}
+  </div>
+
+
+  {{!-- Column 2 : RESOURCES / POWER / TO-HIT / CRITS --}}
+  <div class="flexcol flex-group-center" style="padding-left:20px; border-left:1px solid #00000038">
+    <div class="flexcol" style="gap:3px; padding-top:12px; padding-bottom:12px;">
+
+      <div class="flexrow flex-group-center">
+        <label for="data.health.max" class="resource-label align-left" data-label="Health">Health</label>
+        <div class="flexrow">
+          <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Text" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.stamina.max" class="resource-label align-left" data-label="Stamina">Stamina</label>
+        <div class="flexrow">
+          <input type="text" name="data.stamina.max" value="{{data.stamina.max}}" data-dtype="Text" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.stress.max" class="resource-label align-left" data-label="Stress">Stress</label>
+        <div class="flexrow">
+          <input type="text" name="data.stress.max" value="{{data.stress.max}}" data-dtype="Text" disabled/>
+        </div>
+      </div>
+
+      <div style="padding:8px"></div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.attackMods.damage.value" class="resource-label align-left" data-label="Power">Power</label>
+        <div class="flexrow">
+          <input type="text" name="data.attackMods.damage.value" value="+{{data.attackMods.damage.value}}%" data-dtype="Text" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.attackMods.toHit.value" class="resource-label align-left" data-label="To-Hit">To-Hit</label>
+        <div class="flexrow">
+          <input type="text" name="data.attackMods.toHit.value" value="+{{data.attackMods.toHit.value}}" data-dtype="Text" disabled/>
+        </div>
+      </div>
+
+      <div style="padding:8px"></div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.attackMods.minicrit_Damage.value" class="resource-label align-left">Minicrits</label>
+        <div class="flexrow">
+          <input type="text" name="data.attackMods.minicrit_ToHit.value" value="+{{data.attackMods.minicrit_ToHit.value}}" data-dtype="Text" style="font-size:12px" disabled/>
+          <span style="padding-top:4px;"> / </span>
+          <input type="text" name="data.attackMods.minicrit_Damage.value" value="{{data.attackMods.minicrit_Damage.value}}%" data-dtype="Text" style="font-size:10px" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.attackMods.truecrit_Damage.value" class="resource-label align-left">Truecrits</label>
+        <div class="flexrow">
+          <input type="text" name="data.attackMods.truecrit_ToHit.value" value="+{{data.attackMods.truecrit_ToHit.value}}" data-dtype="Text" style="font-size:12px" disabled/>
+          <span style="padding-top:4px;"> / </span>
+          <input type="text" name="data.attackMods.truecrit_Damage.value" value="{{data.attackMods.truecrit_Damage.value}}%" data-dtype="Text" style="font-size:10px" disabled/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  {{!-- Column 3 : PROPERTIES --}}
+  <div class="flexcol flex-group-center" style="padding-left:20px; border-left:1px solid #00000038">
+    <div class="flexcol" style="gap:3px; padding-top:12px; padding-bottom:12px;">
+
+      <div class="flexrow flex-group-center">
+        <label for="data.dodge.value" class="resource-label align-left">Dodge</label>
+        <div class="flexrow">
+          <input type="text" name="data.dodge.value" value="{{data.dodge.value}}" data-dtype="Number" style="font-size:12px" disabled/>
+          <span style="padding-top:4px;"> / </span>
+          <input type="text" name="data.dodge.cap" value="{{data.dodge.cap}}" data-dtype="Number" style="font-size:12px" disabled/>
+        </div>
+      </div>
+
+      <div style="padding:8px"></div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.posture.value" class="resource-label align-left" data-label="Posture">Posture</label>
+        <div class="flexrow">
+          <input type="text" name="data.posture.value" value="{{data.posture.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.resilience.value" class="resource-label align-left" data-label="Resilience">Resilience</label>
+        <div class="flexrow">
+          <input type="text" name="data.resilience.value" value="{{data.resilience.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+      <div style="padding:8px"></div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.mobility.value" class="resource-label align-left" data-label="Mobility">Mobility</label>
+        <div class="flexrow">
+          <input type="text" name="data.mobility.value" value="{{data.mobility.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.logic.value" class="resource-label align-left" data-label="Logic">Logic</label>
+        <div class="flexrow">
+          <input type="text" name="data.logic.value" value="{{data.logic.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+      <div style="padding:8px"></div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.affinity.value" class="resource-label align-left" data-label="Affinity">Affinity</label>
+        <div class="flexrow">
+          <input type="text" name="data.affinity.value" value="{{data.affinity.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="data.potency.value" class="resource-label align-left" data-label="Potency">Potency</label>
+        <div class="flexrow">
+          <input type="text" name="data.potency.value" value="{{data.potency.value}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="flex-group-center" style="border-top:1px solid #00000038; border-bottom:1px solid #00000038; ">
+  <p>Hello~</p>
+</div>

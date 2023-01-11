@@ -1,0 +1,28 @@
+{
+  "name": "monsterhunter3e",
+  "title": "Monster Hunter 3rd Edition",
+  "description": "Monster Hunter 3rd Edition tabletop roleplaying system by author Jake Whittaker.",
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "9",
+  "author": "Max Amaden",
+  "esmodules": ["module/monsterhunter3e.mjs"],
+  "styles": ["css/monsterhunter3e.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

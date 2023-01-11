@@ -1,0 +1,22 @@
+{
+  "MONSTERHUNTER3E.AbilityStr": "Strength",
+  "MONSTERHUNTER3E.AbilityCon": "Constitution",
+  "MONSTERHUNTER3E.AbilityDex": "Dexterity",
+  "MONSTERHUNTER3E.AbilityInt": "Intelligence",
+  "MONSTERHUNTER3E.AbilityWis": "Wisdom",
+  "MONSTERHUNTER3E.AbilityCha": "Charisma",
+
+  "MONSTERHUNTER3E.AbilityStrAbbr": "str",
+  "MONSTERHUNTER3E.AbilityConAbbr": "con",
+  "MONSTERHUNTER3E.AbilityDexAbbr": "dex",
+  "MONSTERHUNTER3E.AbilityIntAbbr": "int",
+  "MONSTERHUNTER3E.AbilityWisAbbr": "wis",
+  "MONSTERHUNTER3E.AbilityChaAbbr": "cha",
+
+  "MONSTERHUNTER3E.EffectCreate": "Create Effect",
+  "MONSTERHUNTER3E.EffectToggle": "Toggle Effect",
+  "MONSTERHUNTER3E.EffectEdit": "Edit Effect",
+  "MONSTERHUNTER3E.EffectDelete": "Delete Effect",
+
+  "MONSTERHUNTER3E.Add": "Add"
+}
