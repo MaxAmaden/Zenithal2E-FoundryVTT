@@ -1,12 +1,12 @@
 // Import document classes.
-import { MonsterHunter3eActor } from "./documents/actor.mjs";
-import { MonsterHunter3eItem } from "./documents/item.mjs";
+import { Zenithal2eActor } from "./documents/actor.mjs";
+import { Zenithal2eItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { MonsterHunter3eActorSheet } from "./sheets/actor-sheet.mjs";
-import { MonsterHunter3eItemSheet } from "./sheets/item-sheet.mjs";
+import { Zenithal2eActorSheet } from "./sheets/actor-sheet.mjs";
+import { Zenithal2eItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
-import { MONSTERHUNTER3E } from "./helpers/config.mjs";
+import { Z2E } from "./helpers/config.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -16,14 +16,14 @@ Hooks.once('init', async function() {
 
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.monsterhunter3e = {
-    MonsterHunter3eActor,
-    MonsterHunter3eItem,
+  game.z2e = {
+    Zenithal2eActor,
+    Zenithal2eItem,
     rollItemMacro
   };
 
   // Add custom constants for configuration.
-  CONFIG.MONSTERHUNTER3E = MONSTERHUNTER3E;
+  CONFIG.Z2E = Z2E;
 
   /**
    * Set an initiative formula for the system
@@ -35,14 +35,14 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = MonsterHunter3eActor;
-  CONFIG.Item.documentClass = MonsterHunter3eItem;
+  CONFIG.Actor.documentClass = Zenithal2eActor;
+  CONFIG.Item.documentClass = Zenithal2eItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("monsterhunter3e", MonsterHunter3eActorSheet, { makeDefault: true });
+  Actors.registerSheet("z2e", Zenithal2eActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("monsterhunter3e", MonsterHunter3eItemSheet, { makeDefault: true });
+  Items.registerSheet("z2e", Zenithal2eItemSheet, { makeDefault: true });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -93,7 +93,7 @@ async function createItemMacro(data, slot) {
   const item = data.data;
 
   // Create the macro command
-  const command = `game.monsterhunter3e.rollItemMacro("${item.name}");`;
+  const command = `game.z2e.rollItemMacro("${item.name}");`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -101,7 +101,7 @@ async function createItemMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "monsterhunter3e.itemMacro": true }
+      flags: { "z2e.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

@@ -7,12 +7,12 @@
   return loadTemplates([
 
     // Actor partials.
-    "systems/monsterhunter3e/templates/actor/parts/actor-character-header.html",
-    "systems/monsterhunter3e/templates/actor/parts/actor-character-core.html",
-    "systems/monsterhunter3e/templates/actor/parts/actor-character-build.html",
-    "systems/monsterhunter3e/templates/actor/parts/actor-features.html",
-    "systems/monsterhunter3e/templates/actor/parts/actor-items.html",
-    "systems/monsterhunter3e/templates/actor/parts/actor-spells.html",
-    "systems/monsterhunter3e/templates/actor/parts/actor-effects.html",
+    "systems/z2e/templates/actor/parts/actor-character-header.html",
+    "systems/z2e/templates/actor/parts/actor-character-core.html",
+    "systems/z2e/templates/actor/parts/actor-character-build.html",
+    "systems/z2e/templates/actor/parts/actor-features.html",
+    "systems/z2e/templates/actor/parts/actor-items.html",
+    "systems/z2e/templates/actor/parts/actor-spells.html",
+    "systems/z2e/templates/actor/parts/actor-effects.html",
   ]);
 };

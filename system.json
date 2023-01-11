@@ -1,13 +1,13 @@
 {
-  "name": "monsterhunter3e",
-  "title": "Monster Hunter 3rd Edition",
-  "description": "Monster Hunter 3rd Edition tabletop roleplaying system by author Jake Whittaker.",
+  "name": "z2e",
+  "title": "Zenithal 2nd Edition",
+  "description": "Zenithal 2nd Edition tabletop roleplaying system by Jake Whittaker and Max Amaden.",
   "version": "0.0.1",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "9",
   "author": "Max Amaden",
-  "esmodules": ["module/monsterhunter3e.mjs"],
-  "styles": ["css/monsterhunter3e.css"],
+  "esmodules": ["module/z2e.mjs"],
+  "styles": ["css/z2e.css"],
   "scripts": [],
   "packs": [],
   "languages": [

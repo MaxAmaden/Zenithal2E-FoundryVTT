@@ -1,22 +1,22 @@
 {
-  "MONSTERHUNTER3E.AbilityStr": "Strength",
-  "MONSTERHUNTER3E.AbilityCon": "Constitution",
-  "MONSTERHUNTER3E.AbilityDex": "Dexterity",
-  "MONSTERHUNTER3E.AbilityInt": "Intelligence",
-  "MONSTERHUNTER3E.AbilityWis": "Wisdom",
-  "MONSTERHUNTER3E.AbilityCha": "Charisma",
+  "Z2E.AbilityStr": "Strength",
+  "Z2E.AbilityCon": "Constitution",
+  "Z2E.AbilityDex": "Dexterity",
+  "Z2E.AbilityInt": "Intelligence",
+  "Z2E.AbilityWis": "Wisdom",
+  "Z2E.AbilityCha": "Charisma",
 
-  "MONSTERHUNTER3E.AbilityStrAbbr": "str",
-  "MONSTERHUNTER3E.AbilityConAbbr": "con",
-  "MONSTERHUNTER3E.AbilityDexAbbr": "dex",
-  "MONSTERHUNTER3E.AbilityIntAbbr": "int",
-  "MONSTERHUNTER3E.AbilityWisAbbr": "wis",
-  "MONSTERHUNTER3E.AbilityChaAbbr": "cha",
+  "Z2E.AbilityStrAbbr": "str",
+  "Z2E.AbilityConAbbr": "con",
+  "Z2E.AbilityDexAbbr": "dex",
+  "Z2E.AbilityIntAbbr": "int",
+  "Z2E.AbilityWisAbbr": "wis",
+  "Z2E.AbilityChaAbbr": "cha",
 
-  "MONSTERHUNTER3E.EffectCreate": "Create Effect",
-  "MONSTERHUNTER3E.EffectToggle": "Toggle Effect",
-  "MONSTERHUNTER3E.EffectEdit": "Edit Effect",
-  "MONSTERHUNTER3E.EffectDelete": "Delete Effect",
+  "Z2E.EffectCreate": "Create Effect",
+  "Z2E.EffectToggle": "Toggle Effect",
+  "Z2E.EffectEdit": "Edit Effect",
+  "Z2E.EffectDelete": "Delete Effect",
 
-  "MONSTERHUNTER3E.Add": "Add"
+  "Z2E.Add": "Add"
 }

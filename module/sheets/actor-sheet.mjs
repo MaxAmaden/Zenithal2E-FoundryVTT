@@ -4,13 +4,13 @@ import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/ef
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class MonsterHunter3eActorSheet extends ActorSheet {
+export class Zenithal2eActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["monsterhunter3e", "sheet", "actor"],
-      template: "systems/monsterhunter3e/templates/actor/actor-sheet.html",
+      classes: ["z2e", "sheet", "actor"],
+      template: "systems/z2e/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "core" }]
@@ -19,7 +19,7 @@ export class MonsterHunter3eActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/monsterhunter3e/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/z2e/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -70,7 +70,7 @@ export class MonsterHunter3eActorSheet extends ActorSheet {
     /*
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.data.abilities)) {
-      v.label = game.i18n.localize(CONFIG.MONSTERHUNTER3E.abilities[k]) ?? k;
+      v.label = game.i18n.localize(CONFIG.Z2E.abilities[k]) ?? k;
     }
     */
   }

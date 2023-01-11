@@ -1,23 +1,23 @@
-export const MONSTERHUNTER3E = {};
+export const Z2E = {};
 
 /**
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- MONSTERHUNTER3E.abilities = {
-  "str": "MONSTERHUNTER3E.AbilityStr",
-  "dex": "MONSTERHUNTER3E.AbilityDex",
-  "con": "MONSTERHUNTER3E.AbilityCon",
-  "int": "MONSTERHUNTER3E.AbilityInt",
-  "wis": "MONSTERHUNTER3E.AbilityWis",
-  "cha": "MONSTERHUNTER3E.AbilityCha"
+ Z2E.abilities = {
+  "str": "Z2E.AbilityStr",
+  "dex": "Z2E.AbilityDex",
+  "con": "Z2E.AbilityCon",
+  "int": "Z2E.AbilityInt",
+  "wis": "Z2E.AbilityWis",
+  "cha": "Z2E.AbilityCha"
 };
 
-MONSTERHUNTER3E.abilityAbbreviations = {
-  "str": "MONSTERHUNTER3E.AbilityStrAbbr",
-  "dex": "MONSTERHUNTER3E.AbilityDexAbbr",
-  "con": "MONSTERHUNTER3E.AbilityConAbbr",
-  "int": "MONSTERHUNTER3E.AbilityIntAbbr",
-  "wis": "MONSTERHUNTER3E.AbilityWisAbbr",
-  "cha": "MONSTERHUNTER3E.AbilityChaAbbr"
+Z2E.abilityAbbreviations = {
+  "str": "Z2E.AbilityStrAbbr",
+  "dex": "Z2E.AbilityDexAbbr",
+  "con": "Z2E.AbilityConAbbr",
+  "int": "Z2E.AbilityIntAbbr",
+  "wis": "Z2E.AbilityWisAbbr",
+  "cha": "Z2E.AbilityChaAbbr"
 };

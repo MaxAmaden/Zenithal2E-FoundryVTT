@@ -223,19 +223,19 @@
   text-align: center;
 }
 
-/* Styles limited to monsterhunter3e sheets */
-.monsterhunter3e {
+/* Styles limited to z2e sheets */
+.z2e {
   /* ----------------------------------------- */
   /*  Items Lists                              */
   /* ----------------------------------------- */
-  /* Example style for MonsterHunter3e (can be removed if not needed) */
+  /* Example style for Zenithal2e (can be removed if not needed) */
 }
 
-.monsterhunter3e .item-form {
+.z2e .item-form {
   font-family: "Roboto", sans-serif;
 }
 
-.monsterhunter3e .sheet-header {
+.z2e .sheet-header {
   -webkit-box-flex: 0;
   -ms-flex: 0 auto;
   flex: 0 auto;
@@ -255,7 +255,7 @@
   margin-bottom: 10px;
 }
 
-.monsterhunter3e .sheet-header .profile-img {
+.z2e .sheet-header .profile-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
@@ -263,50 +263,50 @@
   margin-right: 10px;
 }
 
-.monsterhunter3e .sheet-header .header-fields {
+.z2e .sheet-header .header-fields {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.monsterhunter3e .sheet-header h1.charname {
+.z2e .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
 
-.monsterhunter3e .sheet-header h1.charname input {
+.z2e .sheet-header h1.charname input {
   width: 100%;
   height: 100%;
   margin: 0;
 }
 
-.monsterhunter3e .sheet-tabs {
+.z2e .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
 }
 
-.monsterhunter3e .sheet-body,
-.monsterhunter3e .sheet-body .tab,
-.monsterhunter3e .sheet-body .tab .editor {
+.z2e .sheet-body,
+.z2e .sheet-body .tab,
+.z2e .sheet-body .tab .editor {
   height: 100%;
 }
 
-.monsterhunter3e .tox .tox-editor-container {
+.z2e .tox .tox-editor-container {
   background: #fff;
 }
 
-.monsterhunter3e .tox .tox-edit-area {
+.z2e .tox .tox-edit-area {
   padding: 0 8px;
 }
 
-.monsterhunter3e .resource-label {
+.z2e .resource-label {
   font-weight: bold;
 }
 
-.monsterhunter3e .items-header {
+.z2e .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -318,12 +318,12 @@
   font-weight: bold;
 }
 
-.monsterhunter3e .items-header > * {
+.z2e .items-header > * {
   font-size: 14px;
   text-align: center;
 }
 
-.monsterhunter3e .items-header .item-name {
+.z2e .items-header .item-name {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
@@ -332,7 +332,7 @@
   display: flex;
 }
 
-.monsterhunter3e .items-list {
+.z2e .items-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -341,13 +341,13 @@
   color: #444;
 }
 
-.monsterhunter3e .items-list .item-list {
+.z2e .items-list .item-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.monsterhunter3e .items-list .item-name {
+.z2e .items-list .item-name {
   -webkit-box-flex: 2;
   -ms-flex: 2;
   flex: 2;
@@ -363,13 +363,13 @@
   display: flex;
 }
 
-.monsterhunter3e .items-list .item-name h3, .monsterhunter3e .items-list .item-name h4 {
+.z2e .items-list .item-name h3, .z2e .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
 }
 
-.monsterhunter3e .items-list .item-controls {
+.z2e .items-list .item-controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -381,13 +381,13 @@
   justify-content: flex-end;
 }
 
-.monsterhunter3e .items-list .item-controls a {
+.z2e .items-list .item-controls a {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
 
-.monsterhunter3e .items-list .item {
+.z2e .items-list .item {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -395,15 +395,15 @@
   border-bottom: 1px solid #c9c7b8;
 }
 
-.monsterhunter3e .items-list .item:last-child {
+.z2e .items-list .item:last-child {
   border-bottom: none;
 }
 
-.monsterhunter3e .items-list .item .item-name {
+.z2e .items-list .item .item-name {
   color: #191813;
 }
 
-.monsterhunter3e .items-list .item .item-name .item-image {
+.z2e .items-list .item .item-name .item-image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 30px;
   flex: 0 0 30px;
@@ -413,14 +413,14 @@
   margin-right: 5px;
 }
 
-.monsterhunter3e .items-list .item-prop {
+.z2e .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
 
-.monsterhunter3e .items-list .items-header {
+.z2e .items-list .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -432,32 +432,32 @@
   font-weight: bold;
 }
 
-.monsterhunter3e .items-list .items-header > * {
+.z2e .items-list .items-header > * {
   font-size: 12px;
   text-align: center;
 }
 
-.monsterhunter3e .items-list .items-header .item-name {
+.z2e .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
 }
 
-.monsterhunter3e .item-formula {
+.z2e .item-formula {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;
   padding: 0 8px;
 }
 
-.monsterhunter3e .effects .item .effect-source,
-.monsterhunter3e .effects .item .effect-duration,
-.monsterhunter3e .effects .item .effect-controls {
+.z2e .effects .item .effect-source,
+.z2e .effects .item .effect-duration,
+.z2e .effects .item .effect-controls {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
 
-.monsterhunter3e .effects .item .effect-controls {
+.z2e .effects .item .effect-controls {
   border: none;
 }
