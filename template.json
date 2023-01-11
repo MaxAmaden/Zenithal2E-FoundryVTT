@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster", "part"],
+    "types": ["character", "monster", "loot"],
     "templates": {
 
       "creature": {
@@ -172,10 +172,10 @@
 
     "monster": {
       "templates": ["damageable", "creature"],
-      "elementalThreshold": 5
+      "armour": 0
     },
 
-    "part": {
+    "loot": {
       "templates": ["damageable"]
     }
 
