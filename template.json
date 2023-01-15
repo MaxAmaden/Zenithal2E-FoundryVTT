@@ -3,180 +3,194 @@
     "types": ["character", "monster", "loot"],
     "templates": {
 
+      "common": {
+        "description": "",
+        "ownerNotes": "",
+        "hiddenNotes": ""
+      },
+
       "creature": {
         
-        "biography": "",
-
-        "rank": {
-          "value": 1
+        "level": {
+          "value": 3
         },
 
-        "stamina": {
-          "value": 5,
-          "temp": 0,
-          "min": 0,
-          "max": 5
+        "life": {
+          "value": 150,
+          "max": 150,
+          "fatal": 0
         },
-        "stress": {
-          "value": 5,
-          "temp": 0,
+        "barrier": {
+          "value": 0,
+          "max": 300
+        },
+        "block": {
+          "value": 0,
+          "max": 300
+        },
+
+        "focus": {
+          "value": 3,
           "min": 0,
-          "max": 5
+          "max": 3
+        },
+
+        "accuracy": {
+          "value": 6
+        },
+        "damageMultiplier": {
+          "value": 200
+        },
+
+        "speed": {
+          "value": 30
+        },
+
+        "dodgeRating": {
+          "value": 0
+        },
+
+        "healingFactor": {
+          "value": 0
+        },
+
+        "awareness": {
+          "value": 0
         },
 
         "attributes": {
-          "muscle": {
-            "value": 0,
-            "base": 0
+          "durability": {
+            "value": 0
+          },
+          "mass": {
+            "value": 0
           },
           "agility": {
-            "value": 0,
-            "base": 0
+            "value": 0
           },
-          "endurance": {
-            "value": 0,
-            "base": 0
+          "precision": {
+            "value": 0
+          },
+          "sense": {
+            "value": 0
           },
           "cunning": {
-            "value": 0,
-            "base": 0
+            "value": 0
           },
-          "skill": {
-            "value": 0,
-            "base": 0
-          },
-          "presence": {
-            "value": 0,
-            "base": 0
+          "spirit": {
+            "value": 0
           }
         },
 
-        "dodge": {
-          "value": 0,
-          "cap": 0
-        },
-        "posture": {
-          "value": 0
-        },
-        "resilience": {
-          "value": 0
+        "resources": {
+          "stance": {
+            "value": 0,
+            "max": 0
+          },
+          "perfection": {
+            "value": 0,
+            "max": 0
+          },
+          "expertise": {
+            "value": 0,
+            "max": 0
+          },
+          "epicMoments": {
+            "value": 0,
+            "max": 0
+          },
+          "lastStand": {
+            "value": 0,
+            "max": 0
+          }
         },
 
-        "mobility": {
-          "value": 0
-        },
-        "logic": {
-          "value": 0
-        },
-
-        "affinity": {
-          "value": 0
-        },
-        "potency": {
-          "value": 0
-        },
-
-        "attackMods": {
-          "damage": {
-            "value": 0
+        "resistances": {
+          "stab": {
+            "rank": 0
           },
-          "toHit": {
-            "value": 0
+          "chop": {
+            "rank": 0
+          },
+          "smash": {
+            "rank": 0
           },
 
-          "force": {
-            "value": 0
+          "burn": {
+            "rank": 0
           },
-
-          "minicrit_ToHit": {
-            "value": 3
+          "death": {
+            "rank": 0
           },
-          "minicrit_Damage": {
-            "value": 25
+          "freeze": {
+            "rank": 0
           },
-
-          "truecrit_ToHit": {
-            "value": 6
+          "heal": {
+            "rank": 3
           },
-          "truecrit_Damage": {
-            "value": 50
+          "holy": {
+            "rank": 0
+          },
+          "pure": {
+            "rank": 0
+          },
+          "putrid": {
+            "rank": 0
+          },
+          "shock": {
+            "rank": 0
           }
         }
 
       },
 
-      "damageable": {
-        "health": {
-          "value": 100,
-          "temp": 0,
-          "min": 0,
-          "max": 100
-        },
-
-        "resistances": {
-          "stab": {
-            "value": 0
-          },
-          "cut": {
-            "value": 0
-          },
-          "smash": {
-            "value": 0
-          },
-
-          "fire": {
-            "value": 0
-          },
-          "ice": {
-            "value": 0
-          },
-          "water": {
-            "value": 0
-          },
-          "lightning": {
-            "value": 0
-          },
-          "poison": {
-            "value": 0
-          },
-          "blast": {
-            "value": 0
-          },
-          "sonic": {
-            "value": 0
-          },
-          "radiation": {
-            "value": 0
-          },
-          "mental": {
-            "value": 0
-          },
-          "dragon": {
-            "value": 0
-          }
-        }
+      "container": {
+        "contents": "" 
       }
     },
 
     "character": {
-      "templates": ["damageable", "creature"],
-      "origin": "",
-      "element": "raw",
-      "classification": "hunter",
-      "armour": {
-        "type": "unarmoured",
-        "quality": 0,
-        "fullElemental": false
+      "templates": ["common", "creature", "container"],
+
+      "details": {
+        "alias": "",
+        "fullName": "",
+        "age": 18,
+        "gender": "",
+        "origin": "",
+        "nationality": "",
+        "jobHistory": "",
+
+        "foodPreference": "",
+        "drinkPreference": "",
+        "recreationPreference": "",
+        "interests": "",
+        "fearsAndAllergies": "",
+
+        "achievements": ""
+      },
+
+      "storage": {
+        "current": 0,
+        "max": 3
+      },
+
+      "armor": {
+        "type": "unarmored",
+        "ignorePenalties": false
       }
     },
 
     "monster": {
-      "templates": ["damageable", "creature"],
-      "armour": 0
+      "templates": ["common", "creature", "container"],
+
+      "armor": {
+        "bonus": 0
+      }
     },
 
     "loot": {
-      "templates": ["damageable"]
+      "templates": ["common", "container"]
     }
 
   },
