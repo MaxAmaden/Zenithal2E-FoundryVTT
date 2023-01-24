@@ -7,7 +7,7 @@ export class Zenithal2eItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["z2e", "sheet", "item"],
+      classes: ["zenithal2e", "sheet", "item"],
       width: 520,
       height: 480,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -16,13 +16,13 @@ export class Zenithal2eItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/z2e/templates/item";
+    const path = "systems/zenithal2e/templates/item";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    return `${path}/item-${this.item.data.type}-sheet.html`;
+    return `${path}/item-${this.item.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -33,7 +33,7 @@ export class Zenithal2eItemSheet extends ItemSheet {
     const context = super.getData();
 
     // Use a safe clone of the item data for further operations.
-    const itemData = context.item.data;
+    const itemData = context.item;
 
     // Retrieve the roll data for TinyMCE editors.
     context.rollData = {};
@@ -43,7 +43,7 @@ export class Zenithal2eItemSheet extends ItemSheet {
     }
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = itemData.data;
+    context.system = itemData.system;
     context.flags = itemData.flags;
 
     return context;

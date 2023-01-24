@@ -1,13 +1,18 @@
 {
-  "name": "z2e",
-  "title": "Zenithal 2nd Edition",
-  "description": "Zenithal 2nd Edition tabletop roleplaying system by Jake Whittaker and Max Amaden.",
-  "version": "0.0.1",
-  "minimumCoreVersion": "10",
-  "compatibleCoreVersion": "10",
-  "author": "Jake Whittaker and Max Amaden",
-  "esmodules": ["module/z2e.mjs"],
-  "styles": ["css/z2e.css"],
+  "id": "zenithal2e",
+  "title": "Zenithal2e",
+  "description": "The Zenithal2e system for FoundryVTT!",
+  "version": "1.2.0",
+  "compatibility": {
+    "minimum": 10,
+    "verified": "10.287",
+    "maximum": 10
+  },
+  "authors": [{
+    "name": "Asacolips"
+  }],
+  "esmodules": ["module/zenithal2e.mjs"],
+  "styles": ["css/zenithal2e.css"],
   "scripts": [],
   "packs": [],
   "languages": [
@@ -24,5 +29,6 @@
   "url": "",
   "manifest": "",
   "download": "",
-  "license": "LICENSE.txt"
+  "license": "LICENSE.txt",
+  "changelog": "CHANGELOG.md"
 }

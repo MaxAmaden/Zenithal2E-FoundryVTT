@@ -7,12 +7,9 @@
   return loadTemplates([
 
     // Actor partials.
-    "systems/z2e/templates/actor/parts/actor-character-header.html",
-    "systems/z2e/templates/actor/parts/actor-character-core.html",
-    "systems/z2e/templates/actor/parts/actor-character-build.html",
-    "systems/z2e/templates/actor/parts/actor-features.html",
-    "systems/z2e/templates/actor/parts/actor-items.html",
-    "systems/z2e/templates/actor/parts/actor-spells.html",
-    "systems/z2e/templates/actor/parts/actor-effects.html",
+    "systems/zenithal2e/templates/actor/parts/actor-features.html",
+    "systems/zenithal2e/templates/actor/parts/actor-items.html",
+    "systems/zenithal2e/templates/actor/parts/actor-spells.html",
+    "systems/zenithal2e/templates/actor/parts/actor-effects.html",
   ]);
 };

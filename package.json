@@ -1,5 +1,5 @@
 {
-  "name": "z2e",
+  "name": "zenithal2e",
   "version": "1.0.0",
   "description": "CSS compiler for the Zenithal2e system",
   "scripts": {
@@ -14,10 +14,11 @@
   "author": "John Doe",
   "license": "MIT",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.53.0"
   }
 }

@@ -1,23 +1,23 @@
-export const Z2E = {};
+export const BOILERPLATE = {};
 
 /**
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- Z2E.abilities = {
-  "str": "Z2E.AbilityStr",
-  "dex": "Z2E.AbilityDex",
-  "con": "Z2E.AbilityCon",
-  "int": "Z2E.AbilityInt",
-  "wis": "Z2E.AbilityWis",
-  "cha": "Z2E.AbilityCha"
+ BOILERPLATE.abilities = {
+  "str": "BOILERPLATE.AbilityStr",
+  "dex": "BOILERPLATE.AbilityDex",
+  "con": "BOILERPLATE.AbilityCon",
+  "int": "BOILERPLATE.AbilityInt",
+  "wis": "BOILERPLATE.AbilityWis",
+  "cha": "BOILERPLATE.AbilityCha"
 };
 
-Z2E.abilityAbbreviations = {
-  "str": "Z2E.AbilityStrAbbr",
-  "dex": "Z2E.AbilityDexAbbr",
-  "con": "Z2E.AbilityConAbbr",
-  "int": "Z2E.AbilityIntAbbr",
-  "wis": "Z2E.AbilityWisAbbr",
-  "cha": "Z2E.AbilityChaAbbr"
+BOILERPLATE.abilityAbbreviations = {
+  "str": "BOILERPLATE.AbilityStrAbbr",
+  "dex": "BOILERPLATE.AbilityDexAbbr",
+  "con": "BOILERPLATE.AbilityConAbbr",
+  "int": "BOILERPLATE.AbilityIntAbbr",
+  "wis": "BOILERPLATE.AbilityWisAbbr",
+  "cha": "BOILERPLATE.AbilityChaAbbr"
 };

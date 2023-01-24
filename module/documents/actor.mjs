@@ -29,133 +29,41 @@ export class Zenithal2eActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags.z2e || {};
+    const actorData = this;
+    const systemData = actorData.system;
+    const flags = actorData.flags.zenithal2e || {};
 
-    // Make separate methods for each Actor type (character, monster, etc.) to keep
+    // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareMonsterData(actorData);
+    this._prepareNpcData(actorData);
   }
 
   /**
-   * Prepare Character-type specific data
+   * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
     if (actorData.type !== 'character') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    const systemData = actorData.system;
 
-    // Set up references.
-    data.attributes.muscle.label = "MUSCLE";
-    data.attributes.agility.label = "AGILITY";
-    data.attributes.endurance.label = "ENDURANCE";
-    data.attributes.cunning.label = "CUNNING";
-    data.attributes.skill.label = "SKILLS";
-    data.attributes.presence.label = "PRESENCE";
-
-    // Calculate Attributes.
-    data.attributes.muscle.value = data.attributes.muscle.base;
-    data.attributes.agility.value = data.attributes.agility.base;
-    data.attributes.endurance.value = data.attributes.endurance.base;
-    data.attributes.skill.value = data.attributes.skill.base;
-    data.attributes.cunning.value = data.attributes.cunning.base;
-    data.attributes.presence.value = data.attributes.presence.base;
-
-    // Calculate attribute points spent.
-    let pointsToBeSpent = 3 + (data.rank.value * 2);
-    pointsToBeSpent -= data.attributes.muscle.base;
-    pointsToBeSpent -= data.attributes.agility.base;
-    pointsToBeSpent -= data.attributes.endurance.base;
-    pointsToBeSpent -= data.attributes.skill.base;
-    pointsToBeSpent -= data.attributes.cunning.base;
-    pointsToBeSpent -= data.attributes.presence.base;
-
-    if (pointsToBeSpent == 0) data.pointsRemainingMessage = " ";
-    else if (pointsToBeSpent < 0) data.pointsRemainingMessage = "[" + Math.abs(pointsToBeSpent) + "] too many points!"
-    else data.pointsRemainingMessage = "[" + pointsToBeSpent + "] points remaining.";
-    data.pointsRemainingMessage = "<p style=\"text-align:center; font-weight:bold\">" + data.pointsRemainingMessage + "</p>";
-
-    // Calculate Resources.
-    data.health.max = (100 * data.rank.value) + (20 * data.attributes.muscle.value) + (20 * data.attributes.endurance.value) + (10 * data.attributes.presence.value);
-    data.stamina.max = (5 * data.rank.value) + (1 * data.attributes.muscle.value) + (1 * data.attributes.endurance.value) + (1 * data.attributes.presence.value);
-    data.stress.max = (5 * data.rank.value) + (1 * data.attributes.skill.value) + (1 * data.attributes.cunning.value) + (1 * data.attributes.presence.value);
-
-    // Calculate Properties.
-    let armourProtection = 2 * data.armour.quality;
-    if (data.armour.type == "light") { armourProtection += 20; }
-    else if (data.armour.type == "medium") { armourProtection += 40; }
-    else if (data.armour.type == "heavy") { armourProtection += 50; }
-    else if (data.armour.type == "ironclad") { armourProtection += 60; }
-    data.resistances.stab.value = armourProtection;
-    data.resistances.cut.value = armourProtection;
-    data.resistances.smash.value = armourProtection;
-
-    let elementalProtection = Math.round(armourProtection / 2);
-    if (data.armour.fullElemental == true) { elementalProtection = armourProtection; }
-    data.resistances.fire.value = elementalProtection;
-    data.resistances.ice.value = elementalProtection;
-    data.resistances.water.value = elementalProtection;
-    data.resistances.lightning.value = elementalProtection;
-    data.resistances.poison.value = elementalProtection;
-    data.resistances.blast.value = elementalProtection;
-    data.resistances.sonic.value = elementalProtection;
-    data.resistances.radiation.value = elementalProtection;
-    data.resistances.mental.value = elementalProtection;
-    data.resistances.dragon.value = elementalProtection;
-
-
-    data.dodge.cap = (1 * data.attributes.agility.value);
-    if (data.armour.type == "unarmoured") { data.dodge.cap += 20 + (2 * data.armour.quality); }
-    else if (data.armour.type == "light") { data.dodge.cap += 15 + (1 * data.armour.quality); }
-    else if (data.armour.type == "medium") { data.dodge.cap += 10 + (1 * data.armour.quality); }
-    else if (data.armour.type == "heavy") { data.dodge.cap += 5 + (1 * data.armour.quality); }
-    else if (data.armour.type == "ironclad") { data.dodge.cap += 3 + (1 * data.armour.quality); }
-
-    data.dodge.value = 10 + (2 * data.attributes.agility.value) + (1 * data.attributes.skill.value) + (1 * data.attributes.cunning.value);
-    if (data.dodge.value > data.dodge.cap) { data.dodge.value = data.dodge.cap; }
-    if (data.armour.type == "unarmoured") {
-      let minimumDodge = 10 + (1 * data.armour.quality);
-      if (data.dodge.value < minimumDodge) { data.dodge.value = minimumDodge; }
+    // Loop through ability scores, and add their modifiers to our sheet output.
+    for (let [key, ability] of Object.entries(systemData.abilities)) {
+      // Calculate the modifier using d20 rules.
+      ability.mod = Math.floor((ability.value - 10) / 2);
     }
-
-    data.posture.value = (1 * data.attributes.muscle.value);
-    if (data.armour.type == "light") { data.posture.value += 0 + Math.round(data.armour.quality / 4); }
-    else if (data.armour.type == "medium") { data.posture.value += 1 + Math.round(data.armour.quality / 3); }
-    else if (data.armour.type == "heavy") { data.posture.value += 2 + Math.round(data.armour.quality / 2); }
-    else if (data.armour.type == "ironclad") { data.posture.value += 3 + Math.round(data.armour.quality / 2); }
-
-    data.resilience.value = (1 * data.attributes.endurance.value);
-    if (data.armour.type == "medium") { data.resilience.value += 0 + Math.round(data.armour.quality / 5); }
-    else if (data.armour.type == "heavy") { data.resilience.value += 1 + Math.round(data.armour.quality / 3); }
-    else if (data.armour.type == "ironclad") { data.resilience.value += 2 + Math.round(data.armour.quality / 3); }
-
-    data.mobility.value = (1 * data.attributes.agility.value);
-    if (data.armour.type == "heavy") { data.mobility.value -= 1; }
-    else if (data.armour.type == "ironclad") { data.mobility.value -= 2; }
-
-    data.logic.value = (1 * data.attributes.cunning.value);
-
-    data.affinity.value = (1 * data.attributes.skill.value);
-
-    data.potency.value = Math.round(0.25 * data.attributes.presence.value);
-
-
-    data.attackMods.damage.value = (10 * data.rank.value);
-    if (data.element == "raw") { data.attackMods.damage.value = (12 * data.rank.value) + (5 * data.potency.value); }
-
-    data.attackMods.toHit.value = (1 * data.rank.value);
   }
 
   /**
-   * Prepare Monster-type specific data.
+   * Prepare NPC type specific data.
    */
-  _prepareMonsterData(actorData) {
-    if (actorData.type !== 'monster') return;
+  _prepareNpcData(actorData) {
+    if (actorData.type !== 'npc') return;
 
-    // Make modifications to data here.
+    // Make modifications to data here. For example:
+    const systemData = actorData.system;
+    systemData.xp = (systemData.cr * systemData.cr) * 100;
   }
 
   /**
@@ -166,7 +74,7 @@ export class Zenithal2eActor extends Actor {
 
     // Prepare character roll data.
     this._getCharacterRollData(data);
-    this._getMonsterRollData(data);
+    this._getNpcRollData(data);
 
     return data;
   }
@@ -175,7 +83,7 @@ export class Zenithal2eActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.data.type !== 'character') return;
+    if (this.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
@@ -192,12 +100,12 @@ export class Zenithal2eActor extends Actor {
   }
 
   /**
-   * Prepare monster roll data.
+   * Prepare NPC roll data.
    */
-  _getMonsterRollData(data) {
-    if (this.data.type !== 'monster') return;
+  _getNpcRollData(data) {
+    if (this.type !== 'npc') return;
 
-    // Process additional monster data here.
+    // Process additional NPC data here.
   }
 
 }

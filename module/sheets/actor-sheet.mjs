@@ -9,17 +9,17 @@ export class Zenithal2eActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["z2e", "sheet", "actor"],
-      template: "systems/z2e/templates/actor/actor-sheet.html",
+      classes: ["zenithal2e", "sheet", "actor"],
+      template: "systems/zenithal2e/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "core" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
     });
   }
 
   /** @override */
   get template() {
-    return `systems/z2e/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/zenithal2e/templates/actor/actor-${this.actor.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -33,10 +33,10 @@ export class Zenithal2eActorSheet extends ActorSheet {
     const context = super.getData();
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    context.system = actorData.system;
     context.flags = actorData.flags;
 
     // Prepare character data and items.
@@ -45,8 +45,8 @@ export class Zenithal2eActorSheet extends ActorSheet {
       this._prepareCharacterData(context);
     }
 
-    // Prepare monster data and items.
-    if (actorData.type == 'monster') {
+    // Prepare NPC data and items.
+    if (actorData.type == 'npc') {
       this._prepareItems(context);
     }
 
@@ -67,12 +67,10 @@ export class Zenithal2eActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    /*
     // Handle ability scores.
-    for (let [k, v] of Object.entries(context.data.abilities)) {
-      v.label = game.i18n.localize(CONFIG.Z2E.abilities[k]) ?? k;
+    for (let [k, v] of Object.entries(context.system.abilities)) {
+      v.label = game.i18n.localize(CONFIG.BOILERPLATE.abilities[k]) ?? k;
     }
-    */
   }
 
   /**
@@ -84,7 +82,6 @@ export class Zenithal2eActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    const actions = [];
     const gear = [];
     const features = [];
     const spells = {
@@ -103,12 +100,6 @@ export class Zenithal2eActorSheet extends ActorSheet {
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
-
-      // Appent to actions.
-      if (i.type === 'action') {
-        actions.push(i);
-      }
-
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
@@ -119,14 +110,13 @@ export class Zenithal2eActorSheet extends ActorSheet {
       }
       // Append to spells.
       else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
+        if (i.system.spellLevel != undefined) {
+          spells[i.system.spellLevel].push(i);
         }
       }
     }
 
     // Assign and return
-    context.actions = actions;
     context.gear = gear;
     context.features = features;
     context.spells = spells;
@@ -195,10 +185,10 @@ export class Zenithal2eActorSheet extends ActorSheet {
     const itemData = {
       name: name,
       type: type,
-      data: data
+      system: data
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    delete itemData.system["type"];
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});

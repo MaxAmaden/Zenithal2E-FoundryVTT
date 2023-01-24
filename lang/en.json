@@ -1,22 +1,22 @@
 {
-  "Z2E.AbilityStr": "Strength",
-  "Z2E.AbilityCon": "Constitution",
-  "Z2E.AbilityDex": "Dexterity",
-  "Z2E.AbilityInt": "Intelligence",
-  "Z2E.AbilityWis": "Wisdom",
-  "Z2E.AbilityCha": "Charisma",
+  "BOILERPLATE.AbilityStr": "Strength",
+  "BOILERPLATE.AbilityCon": "Constitution",
+  "BOILERPLATE.AbilityDex": "Dexterity",
+  "BOILERPLATE.AbilityInt": "Intelligence",
+  "BOILERPLATE.AbilityWis": "Wisdom",
+  "BOILERPLATE.AbilityCha": "Charisma",
 
-  "Z2E.AbilityStrAbbr": "str",
-  "Z2E.AbilityConAbbr": "con",
-  "Z2E.AbilityDexAbbr": "dex",
-  "Z2E.AbilityIntAbbr": "int",
-  "Z2E.AbilityWisAbbr": "wis",
-  "Z2E.AbilityChaAbbr": "cha",
+  "BOILERPLATE.AbilityStrAbbr": "str",
+  "BOILERPLATE.AbilityConAbbr": "con",
+  "BOILERPLATE.AbilityDexAbbr": "dex",
+  "BOILERPLATE.AbilityIntAbbr": "int",
+  "BOILERPLATE.AbilityWisAbbr": "wis",
+  "BOILERPLATE.AbilityChaAbbr": "cha",
 
-  "Z2E.EffectCreate": "Create Effect",
-  "Z2E.EffectToggle": "Toggle Effect",
-  "Z2E.EffectEdit": "Edit Effect",
-  "Z2E.EffectDelete": "Delete Effect",
+  "BOILERPLATE.EffectCreate": "Create Effect",
+  "BOILERPLATE.EffectToggle": "Toggle Effect",
+  "BOILERPLATE.EffectEdit": "Edit Effect",
+  "BOILERPLATE.EffectDelete": "Delete Effect",
 
-  "Z2E.Add": "Add"
+  "BOILERPLATE.Add": "Add"
 }
