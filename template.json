@@ -31,8 +31,13 @@
 
         "focus": {
           "value": 3,
-          "min": 0,
-          "max": 3
+          "max": 3,
+          "mods": 0
+        },
+        "ammo": {
+          "value": 5,
+          "max": 5,
+          "mods": 0
         },
 
         "accuracy": {
@@ -63,18 +68,28 @@
 
         "attributes": {
           "durability": {
+            "base": 0,
+            "mods": 0,
             "value": 0
           },
           "mass": {
+            "base": 0,
+            "mods": 0,
             "value": 0
           },
           "agility": {
+            "base": 0,
+            "mods": 0,
             "value": 0
           },
           "precision": {
+            "base": 0,
+            "mods": 0,
             "value": 0
           },
           "cunning": {
+            "base": 0,
+            "mods": 0,
             "value": 0
           }
         },

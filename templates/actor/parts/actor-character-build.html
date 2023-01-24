@@ -7,18 +7,18 @@
       {{!-- Column 1.1 : DUR/AGI --}}
       <div class="flexcol" style="gap:20px">
         <div class="flexcol flex-group-center">
-          <label for="system.attributes.durability.value" class="resource-label">DURABILITY</label>
+          <label for="system.attributes.durability.base" class="resource-label">DURABILITY</label>
           <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
           <div class="flexrow" style="max-width:50px; text-align:center">
-            <input type="text" name="system.attributes.durability.value" value="{{system.attributes.durability.value}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+            <input type="text" name="system.attributes.durability.base" value="{{system.attributes.durability.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
           </div>
         </div>
 
         <div class="flexcol flex-group-center">
-          <label for="system.attributes.agility.value" class="resource-label">AGILITY</label>
+          <label for="system.attributes.agility.base" class="resource-label">AGILITY</label>
           <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
           <div class="flexrow" style="max-width:50px; text-align:center">
-            <input type="text" name="system.attributes.agility.value" value="{{system.attributes.agility.value}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+            <input type="text" name="system.attributes.agility.base" value="{{system.attributes.agility.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
           </div>
         </div>
       </div>
@@ -26,18 +26,18 @@
       {{!-- Column 1.2 : MAS/PRE --}}
       <div class="flexcol" style="gap:20px">
         <div class="flexcol flex-group-center">
-          <label for="system.attributes.mass.value" class="resource-label">MASS</label>
+          <label for="system.attributes.mass.base" class="resource-label">MASS</label>
           <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
           <div class="flexrow" style="max-width:50px; text-align:center">
-            <input type="text" name="system.attributes.mass.value" value="{{system.attributes.mass.value}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+            <input type="text" name="system.attributes.mass.base" value="{{system.attributes.mass.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
           </div>
         </div>
 
         <div class="flexcol flex-group-center">
-          <label for="system.attributes.precision.value" class="resource-label">PRECISION</label>
+          <label for="system.attributes.precision.base" class="resource-label">PRECISION</label>
           <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
           <div class="flexrow" style="max-width:50px; text-align:center">
-            <input type="text" name="system.attributes.precision.value" value="{{system.attributes.precision.value}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+            <input type="text" name="system.attributes.precision.base" value="{{system.attributes.precision.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
           </div>
         </div>
       </div>
@@ -45,10 +45,10 @@
       {{!-- Row 1.3 : CUN --}}
       <section class="main grid-span-2" style="gap:20px">
         <div class="flexcol flex-group-center">
-        <label for="system.attributes.cunning.value" class="resource-label">CUNNING</label>
+        <label for="system.attributes.cunning.base" class="resource-label">CUNNING</label>
         <div style="margin:auto; margin-bottom: 8px; border-bottom: 1px solid #00000038; width:60px"></div>
           <div class="flexrow" style="max-width:50px; text-align:center">
-            <input type="text" name="system.attributes.cunning.value" value="{{system.attributes.cunning.value}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
+            <input type="text" name="system.attributes.cunning.base" value="{{system.attributes.cunning.base}}" data-dtype="Number" style="height:40px; font-weight: bold; font-size: 20px;"/>
           </div>
         </div>
       </section>
@@ -59,7 +59,7 @@
   </div>
 
 
-  {{!-- Column 2 : RESOURCES / POWER / TO-HIT / CRITS --}}
+  {{!-- Column 2 : PROPERTIES --}}
   <div class="flexcol flex-group-center" style="padding-left:20px; border-left:1px solid #00000038">
     <div class="flexcol" style="gap:3px; padding-top:12px; padding-bottom:12px;">
 
@@ -122,64 +122,51 @@
   </div>
 
 
-  {{!-- Column 3 : PROPERTIES --}}
+  {{!-- Column 3 : RESOURCES --}}
   <div class="flexcol flex-group-center" style="padding-left:20px; border-left:1px solid #00000038">
     <div class="flexcol" style="gap:3px; padding-top:12px; padding-bottom:12px;">
 
       <div class="flexrow flex-group-center">
-        <label for="system.dodge.value" class="resource-label align-left">Dodge</label>
+        <label for="system.focus.max" class="resource-label align-left" data-label="Focus">Focus</label>
         <div class="flexrow">
-          <input type="text" name="system.dodge.value" value="{{system.dodge.value}}" data-dtype="Number" style="font-size:12px" disabled/>
-          <span style="padding-top:4px;"> / </span>
-          <input type="text" name="system.dodge.cap" value="{{system.dodge.cap}}" data-dtype="Number" style="font-size:12px" disabled/>
+          <input type="text" name="system.focus.max" value="{{system.focus.max}}" data-dtype="Number" disabled/>
+        </div>
+      </div>
+
+      <div class="flexrow flex-group-center">
+        <label for="system.ammo.max" class="resource-label align-left" data-label="Ammo">Ammo</label>
+        <div class="flexrow">
+          <input type="text" name="system.ammo.max" value="{{system.ammo.max}}" data-dtype="Number" disabled/>
         </div>
       </div>
 
       <div style="padding:8px"></div>
 
       <div class="flexrow flex-group-center">
-        <label for="system.posture.value" class="resource-label align-left" data-label="Posture">Posture</label>
+        <label for="system.resources.stance.max" class="resource-label align-left" data-label="Stance">Stance</label>
         <div class="flexrow">
-          <input type="text" name="system.posture.value" value="{{system.posture.value}}" data-dtype="Number" disabled/>
+          <input type="text" name="system.resources.stance.max" value="{{system.resources.stance.max}}" data-dtype="Number" disabled/>
         </div>
       </div>
 
       <div class="flexrow flex-group-center">
-        <label for="system.resilience.value" class="resource-label align-left" data-label="Resilience">Resilience</label>
+        <label for="system.resources.perfection.max" class="resource-label align-left" data-label="Perfection">Perfection</label>
         <div class="flexrow">
-          <input type="text" name="system.resilience.value" value="{{system.resilience.value}}" data-dtype="Number" disabled/>
-        </div>
-      </div>
-
-      <div style="padding:8px"></div>
-
-      <div class="flexrow flex-group-center">
-        <label for="system.mobility.value" class="resource-label align-left" data-label="Mobility">Mobility</label>
-        <div class="flexrow">
-          <input type="text" name="system.mobility.value" value="{{system.mobility.value}}" data-dtype="Number" disabled/>
+          <input type="text" name="system.resources.perfection.max" value="{{system.resources.perfection.max}}" data-dtype="Number" disabled/>
         </div>
       </div>
 
       <div class="flexrow flex-group-center">
-        <label for="system.logic.value" class="resource-label align-left" data-label="Logic">Logic</label>
+        <label for="system.resources.expertise.max" class="resource-label align-left" data-label="Expertise">Expertise</label>
         <div class="flexrow">
-          <input type="text" name="system.logic.value" value="{{system.logic.value}}" data-dtype="Number" disabled/>
-        </div>
-      </div>
-
-      <div style="padding:8px"></div>
-
-      <div class="flexrow flex-group-center">
-        <label for="system.affinity.value" class="resource-label align-left" data-label="Affinity">Affinity</label>
-        <div class="flexrow">
-          <input type="text" name="system.affinity.value" value="{{system.affinity.value}}" data-dtype="Number" disabled/>
+          <input type="text" name="system.resources.expertise.max" value="{{system.resources.expertise.max}}" data-dtype="Number" disabled/>
         </div>
       </div>
 
       <div class="flexrow flex-group-center">
-        <label for="system.potency.value" class="resource-label align-left" data-label="Potency">Potency</label>
+        <label for="system.resources.lastStand.max" class="resource-label align-left" data-label="Last Stand">Last Stand</label>
         <div class="flexrow">
-          <input type="text" name="system.potency.value" value="{{system.potency.value}}" data-dtype="Number" disabled/>
+          <input type="text" name="system.resources.lastStand.max" value="{{system.resources.lastStand.max}}" data-dtype="Number" disabled/>
         </div>
       </div>
 
@@ -193,7 +180,7 @@
   {{!-- TEMP ARMOR SELECTION --}}
     <section class="main grid-span-2">
         <div class="flex-group-center">
-            <label for="system.armor.type" class="resource-label">Armor Type</label>
+            <label for="system.armor.type" class="resource-label">Outfit</label>
             <div class="flexrow flex-center flex-between">
                 <select name="system.armor.type" value="{{system.armor.type}}" style="min-width:20px; text-align:center;">
                     {{#select system.armor.type}}

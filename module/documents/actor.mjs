@@ -48,19 +48,50 @@ export class Zenithal2eActor extends Actor {
     const systemData = actorData.system;
 
 
+    // Define null values.
+    if (systemData.attributes.durability.base == null) systemData.attributes.durability.base = 0;
+    if (systemData.attributes.durability.mods == null) systemData.attributes.durability.mods = 0;
 
-    // Calculate attribute points spent.
+    if (systemData.attributes.mass.base == null) systemData.attributes.mass.base = 0;
+    if (systemData.attributes.mass.mods == null) systemData.attributes.mass.mods = 0;
+
+    if (systemData.attributes.agility.base == null) systemData.attributes.agility.base = 0;
+    if (systemData.attributes.agility.mods == null) systemData.attributes.agility.mods = 0;
+
+    if (systemData.attributes.precision.base == null) systemData.attributes.precision.base = 0;
+    if (systemData.attributes.precision.mods == null) systemData.attributes.precision.mods = 0;
+
+    if (systemData.attributes.cunning.base == null) systemData.attributes.cunning.base = 0;
+    if (systemData.attributes.cunning.mods == null) systemData.attributes.cunning.mods = 0;
+
+    if (systemData.focus.value == null) systemData.focus.value = 3;
+    if (systemData.focus.mods == null) systemData.focus.mods = 0;
+
+    if (systemData.ammo.value == null) systemData.ammo.value = 5;
+    if (systemData.ammo.mods == null) systemData.ammo.mods = 0;
+
+
+
+    // Calculate attribute points.
+    systemData.attributes.durability.value = systemData.attributes.durability.base + systemData.attributes.durability.mods;    
+    systemData.attributes.mass.value = systemData.attributes.mass.base + systemData.attributes.mass.mods;    
+    systemData.attributes.agility.value = systemData.attributes.agility.base + systemData.attributes.agility.mods;    
+    systemData.attributes.precision.value = systemData.attributes.precision.base + systemData.attributes.precision.mods;    
+    systemData.attributes.cunning.value = systemData.attributes.cunning.base + systemData.attributes.cunning.mods;
+
+
     let pointsToBeSpent = 2 + (systemData.rank.value * 2);
-    pointsToBeSpent -= systemData.attributes.durability.value;
-    pointsToBeSpent -= systemData.attributes.mass.value;
-    pointsToBeSpent -= systemData.attributes.agility.value;
-    pointsToBeSpent -= systemData.attributes.precision.value;
-    pointsToBeSpent -= systemData.attributes.cunning.value;
+    pointsToBeSpent -= systemData.attributes.durability.base;
+    pointsToBeSpent -= systemData.attributes.mass.base;
+    pointsToBeSpent -= systemData.attributes.agility.base;
+    pointsToBeSpent -= systemData.attributes.precision.base;
+    pointsToBeSpent -= systemData.attributes.cunning.base;
 
     if (pointsToBeSpent == 0) systemData.pointsRemainingMessage = " ";
     else if (pointsToBeSpent < 0) systemData.pointsRemainingMessage = "[" + Math.abs(pointsToBeSpent) + "] too many points!"
     else systemData.pointsRemainingMessage = "[" + pointsToBeSpent + "] points remaining.";
     systemData.pointsRemainingMessage = "<p style=\"text-align:center; font-weight:bold\">" + systemData.pointsRemainingMessage + "</p>";
+
 
 
     // Special feature for Rank X (-1).
@@ -81,7 +112,28 @@ export class Zenithal2eActor extends Actor {
     if (systemData.rank.value == 0) { systemData.life.max = 25; }
     if (recallRank < 0) { systemData.life.max = 10; }
 
+    systemData.focus.max = 3 + systemData.focus.mods;
+    if (systemData.armor.type == "robes_light") { systemData.focus.max += 1; }
+    else if (systemData.armor.type == "robes_heavy") { systemData.focus.max += 2; }
 
+    systemData.ammo.max = 5 + systemData.ammo.mods;
+    if (systemData.armor.type == "packs_light") { systemData.ammo.max += 1; }
+    else if (systemData.armor.type == "packs_medium") { systemData.ammo.max += 3; }
+    else if (systemData.armor.type == "packs_heavy") { systemData.ammo.max += 5; }
+
+    systemData.resources.stance.max = Math.floor(systemData.attributes.mass.value / 2);
+    if (systemData.armor.type == "armor_light") { systemData.resources.stance.max += 1; }
+    else if (systemData.armor.type == "armor_medium") { systemData.resources.stance.max += 2; }
+    else if (systemData.armor.type == "armor_heavy") { systemData.resources.stance.max += 3; }
+    else if (systemData.armor.type == "packs_heavy") { systemData.resources.stance.max += 1; }
+
+    systemData.resources.perfection.max = Math.floor(systemData.attributes.precision.value / 2);
+
+    systemData.resources.expertise.max = Math.floor(systemData.attributes.cunning.value / 2);
+
+    systemData.resources.lastStand.max = Math.floor(systemData.attributes.durability.value / 2);
+
+    
 
     // Calculate Properties.
     systemData.damageMultiplier.value = (50) + (50 * systemData.rank.value);
