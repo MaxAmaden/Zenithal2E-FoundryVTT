@@ -189,5 +189,28 @@
 </div>
 
 <div class="flex-group-center" style="border-top:1px solid #00000038; border-bottom:1px solid #00000038; ">
-  <p>Hello~</p>
+
+  {{!-- TEMP ARMOR SELECTION --}}
+    <section class="main grid-span-2">
+        <div class="flex-group-center">
+            <label for="system.armor.type" class="resource-label">Armor Type</label>
+            <div class="flexrow flex-center flex-between">
+                <select name="system.armor.type" value="{{system.armor.type}}" style="min-width:20px; text-align:center;">
+                    {{#select system.armor.type}}
+                    <option value="bare">Bare</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="armor_light">Light Armor</option>
+                    <option value="armor_medium">Medium Armor</option>
+                    <option value="armor_heavy">Heavy Armor</option>
+                    <option value="packs_light">Light Packs</option>
+                    <option value="packs_medium">Medium Packs</option>
+                    <option value="packs_heavy">Heavy Packs</option>
+                    <option value="robes_light">Light Robes</option>
+                    <option value="robes_heavy">Heavy Robes</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+    </section>
+
 </div>
