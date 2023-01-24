@@ -45,8 +45,8 @@ export class Zenithal2eActorSheet extends ActorSheet {
       this._prepareCharacterData(context);
     }
 
-    // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    // Prepare Monster data and items.
+    if (actorData.type == 'monster') {
       this._prepareItems(context);
     }
 
@@ -67,10 +67,56 @@ export class Zenithal2eActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    // Handle ability scores.
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.BOILERPLATE.abilities[k]) ?? k;
-    }
+    // Calculate attribute points spent.
+    let pointsToBeSpent = 2 + (context.system.rank.value * 2);
+    pointsToBeSpent -= context.system.attributes.durability.value;
+    pointsToBeSpent -= context.system.attributes.mass.value;
+    pointsToBeSpent -= context.system.attributes.agility.value;
+    pointsToBeSpent -= context.system.attributes.precision.value;
+    pointsToBeSpent -= context.system.attributes.cunning.value;
+
+    if (pointsToBeSpent == 0) context.system.pointsRemainingMessage = " ";
+    else if (pointsToBeSpent < 0) context.system.pointsRemainingMessage = "[" + Math.abs(pointsToBeSpent) + "] too many points!"
+    else context.system.pointsRemainingMessage = "[" + pointsToBeSpent + "] points remaining.";
+    context.system.pointsRemainingMessage = "<p style=\"text-align:center; font-weight:bold\">" + context.system.pointsRemainingMessage + "</p>";
+
+    // Calculate Resources.
+    context.system.life.max = (50 * context.system.rank.value) + (5 * context.system.attributes.durability.value) + (2 * context.system.attributes.mass.value) + (1 * context.system.attributes.agility.value);
+    if (context.system.armor.type == "armor_light") { context.system.life.max += 10 * context.system.rank.value; }
+    else if (context.system.armor.type == "armor_medium") { context.system.life.max += 20 * context.system.rank.value; }
+    else if (context.system.armor.type == "armor_heavy") { context.system.life.max += 30 * context.system.rank.value; }
+    else if (context.system.armor.type == "packs_medium") { context.system.life.max += 5 * context.system.rank.value; }
+    else if (context.system.armor.type == "packs_heavy") { context.system.life.max += 15 * context.system.rank.value; }
+    else if (context.system.armor.type == "robes_light") { context.system.life.max -= 10 * context.system.rank.value; }
+    else if (context.system.armor.type == "robes_heavy") { context.system.life.max -= 25 * context.system.rank.value; }
+
+    // Calculate Properties.
+    context.system.damageMultiplier.value = (50) + (50 * context.system.rank.value);
+
+    context.system.accuracy.value = (2 * context.system.rank.value) + (1 * context.system.attributes.precision.value);
+
+    context.system.healingFactor.value = (10 * context.system.rank.value) + (2 * context.system.attributes.durability.value);
+
+    context.system.speed.value = (25) + Math.floor(context.system.attributes.agility.value / 2);
+    if (context.system.armor.type == "armor_medium" && context.system.attributes.mass.value <= 1) { context.system.speed.value -= 5; }
+    else if (context.system.armor.type == "armor_heavy" && context.system.attributes.mass.value <= 1) { context.system.speed.value -= 10; }
+    else if (context.system.armor.type == "armor_heavy" && context.system.attributes.mass.value <= 3) { context.system.speed.value -= 5; }
+
+    context.system.dodgeRating.value = (context.system.attributes.agility.value);
+    if (context.system.armor.type == "bare") { context.system.dodgeRating.value += 11 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "clothes") { context.system.dodgeRating.value += 10 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "armor_light") { context.system.dodgeRating.value += 7 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "armor_medium") { context.system.dodgeRating.value += 4 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "armor_heavy") { context.system.dodgeRating.value += 1 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "packs_light") { context.system.dodgeRating.value += 9 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "packs_medium") { context.system.dodgeRating.value += 7 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "packs_heavy") { context.system.dodgeRating.value += 4 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "robes_light") { context.system.dodgeRating.value += 7 + (2 * context.system.rank.value); }
+    else if (context.system.armor.type == "robes_heavy") { context.system.dodgeRating.value += 4 + (2 * context.system.rank.value); }
+
+    context.system.criticalResistance.value = 0;
+    if (context.system.armor.type == "armor_medium") { context.system.criticalResistance.value += 1; }
+    else if (context.system.armor.type == "armor_heavy") { context.system.criticalResistance.value += 2; }
   }
 
   /**

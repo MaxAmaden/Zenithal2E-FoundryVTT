@@ -33,10 +33,10 @@ export class Zenithal2eActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.zenithal2e || {};
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // Make separate methods for each Actor type (character, monster, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
+    this._prepareMonsterData(actorData);
   }
 
   /**
@@ -56,10 +56,10 @@ export class Zenithal2eActor extends Actor {
   }
 
   /**
-   * Prepare NPC type specific data.
+   * Prepare Monster type specific data.
    */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
+  _prepareMonsterData(actorData) {
+    if (actorData.type !== 'monster') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -74,7 +74,7 @@ export class Zenithal2eActor extends Actor {
 
     // Prepare character roll data.
     this._getCharacterRollData(data);
-    this._getNpcRollData(data);
+    this._getMonsterRollData(data);
 
     return data;
   }
@@ -100,12 +100,12 @@ export class Zenithal2eActor extends Actor {
   }
 
   /**
-   * Prepare NPC roll data.
+   * Prepare Monster roll data.
    */
-  _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
+  _getMonsterRollData(data) {
+    if (this.type !== 'monster') return;
 
-    // Process additional NPC data here.
+    // Process additional Monster data here.
   }
 
 }

@@ -1,70 +1,217 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": ["character", "monster", "loot"],
     "templates": {
-      "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        },
-        "biography": ""
-      }
-    },
-    "character": {
-      "templates": ["base"],
-      "attributes": {
-        "level": {
-          "value": 1
-        }
+
+      "common": {
+        "description": "",
+        "ownerNotes": "",
+        "hiddenNotes": ""
       },
-      "abilities": {
-        "str": {
-          "value": 10
+
+      "creature": {
+        
+        "rank": {
+          "value": 3
         },
-        "dex": {
-          "value": 10
+
+        "life": {
+          "value": 150,
+          "max": 150,
+          "fatal": 0
         },
-        "con": {
-          "value": 10
+        "barrier": {
+          "value": 0,
+          "max": 300
         },
-        "int": {
-          "value": 10
+        "block": {
+          "value": 0,
+          "max": 300
         },
-        "wis": {
-          "value": 10
+
+        "focus": {
+          "value": 3,
+          "min": 0,
+          "max": 3
         },
-        "cha": {
-          "value": 10
+
+        "accuracy": {
+          "value": 6
+        },
+        "damageMultiplier": {
+          "value": 200
+        },
+
+        "speed": {
+          "value": 25
+        },
+
+        "dodgeRating": {
+          "value": 0
+        },
+        "criticalResistance": {
+          "value": 0
+        },
+
+        "healingFactor": {
+          "value": 0
+        },
+
+        "awareness": {
+          "value": 0
+        },
+
+        "attributes": {
+          "durability": {
+            "value": 0
+          },
+          "mass": {
+            "value": 0
+          },
+          "agility": {
+            "value": 0
+          },
+          "precision": {
+            "value": 0
+          },
+          "cunning": {
+            "value": 0
+          }
+        },
+
+        "resources": {
+          "stance": {
+            "value": 0,
+            "max": 0
+          },
+          "perfection": {
+            "value": 0,
+            "max": 0
+          },
+          "expertise": {
+            "value": 0,
+            "max": 0
+          },
+          "lastStand": {
+            "value": 0,
+            "max": 0
+          }
+        },
+
+        "resistances": {
+          "stab": {
+            "rank": 0
+          },
+          "chop": {
+            "rank": 0
+          },
+          "smash": {
+            "rank": 0
+          },
+
+          "burn": {
+            "rank": 0
+          },
+          "death": {
+            "rank": 0
+          },
+          "freeze": {
+            "rank": 0
+          },
+          "heal": {
+            "rank": 3
+          },
+          "holy": {
+            "rank": 0
+          },
+          "pure": {
+            "rank": 0
+          },
+          "putrid": {
+            "rank": 0
+          },
+          "shock": {
+            "rank": 0
+          }
         }
+
+      },
+
+      "container": {
+        "contents": "" 
       }
     },
-    "npc": {
-      "templates": ["base"],
-      "cr": 0
+
+    "character": {
+      "templates": ["common", "creature", "container"],
+
+      "details": {
+        "alias": "",
+        "fullName": "",
+        "age": 18,
+        "gender": "",
+        "origin": "",
+        "nationality": "",
+        "jobHistory": "",
+
+        "foodPreference": "",
+        "drinkPreference": "",
+        "recreationPreference": "",
+        "interests": "",
+        "fearsAndAllergies": "",
+
+        "achievements": ""
+      },
+
+      "storage": {
+        "current": 0,
+        "max": 3
+      },
+
+      "armor": {
+        "type": "unarmored",
+        "ignorePenalties": false
+      }
+    },
+
+    "monster": {
+      "templates": ["common", "creature", "container"],
+
+      "armor": {
+        "bonus": 0
+      }
+    },
+
+    "loot": {
+      "templates": ["common", "container"]
     }
+
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["action", "item", "feature", "spell"],
     "templates": {
       "base": {
+        "name": "",
         "description": ""
       }
     },
+
+    "action": {
+      "templates": ["base"],
+      "cost": "0AP"
+    },
+
     "item": {
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
       "formula": "d20 + @str.mod + ceil(@lvl / 2)"
     },
+
     "feature": {
       "templates": ["base"]
     },
+
     "spell": {
       "templates": ["base"],
       "spellLevel": 1
