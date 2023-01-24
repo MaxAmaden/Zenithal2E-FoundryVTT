@@ -61,7 +61,7 @@ export class Zenithal2eActor extends Actor {
     systemData.pointsRemainingMessage = "<p style=\"text-align:center; font-weight:bold\">" + systemData.pointsRemainingMessage + "</p>";
 
     // Calculate Resources.
-    systemData.life.max = (50 * systemData.rank.value) + (5 * systemData.attributes.durability.value) + (2 * systemData.attributes.mass.value) + (1 * systemData.attributes.agility.value);
+    systemData.life.max = systemData.rank.value * ((50) + (5 * systemData.attributes.durability.value) + (2 * systemData.attributes.mass.value) + (1 * systemData.attributes.agility.value));
     if (systemData.armor.type == "armor_light") { systemData.life.max += 10 * systemData.rank.value; }
     else if (systemData.armor.type == "armor_medium") { systemData.life.max += 20 * systemData.rank.value; }
     else if (systemData.armor.type == "armor_heavy") { systemData.life.max += 30 * systemData.rank.value; }
@@ -77,7 +77,7 @@ export class Zenithal2eActor extends Actor {
 
     systemData.healingFactor.value = (10 * systemData.rank.value) + (2 * systemData.attributes.durability.value);
 
-    systemData.speed.value = (25) + Math.floor(systemData.attributes.agility.value / 2);
+    systemData.speed.value = (25) + (Math.floor(systemData.attributes.agility.value / 2) * 5);
     if (systemData.armor.type == "armor_medium" && systemData.attributes.mass.value <= 1) { systemData.speed.value -= 5; }
     else if (systemData.armor.type == "armor_heavy" && systemData.attributes.mass.value <= 1) { systemData.speed.value -= 10; }
     else if (systemData.armor.type == "armor_heavy" && systemData.attributes.mass.value <= 3) { systemData.speed.value -= 5; }
