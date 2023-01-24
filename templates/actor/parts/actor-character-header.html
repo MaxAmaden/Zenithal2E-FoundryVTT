@@ -1,0 +1,51 @@
+<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+<div class="header-fields">
+    <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+
+    {{!-- Core Columns (x6) --}}
+    <div class="resources grid grid-6col">
+
+        {{!-- Alias --}}
+        <section class="main grid-span-3">
+            <div class="flex-group-center">
+                <label for="system.alias" class="resource-label">Title</label>
+                <div class="flexrow flex-center flex-between">
+                    <input type="text" name="system.alias" value="{{system.alias}}"/>
+                </div>
+            </div>
+        </section>
+
+        {{!-- Nationality --}}
+        <section class="main grid-span-2">
+            <div class="flex-group-center">
+                <label for="system.nationality" class="resource-label">Nationality</label>
+                <div class="flexrow flex-center flex-between">
+                    <select name="system.nationality" value="{{system.nationality}}" style="min-width:20px; text-align:center;">
+                        {{#select system.nationality}}
+                        <option value="none" style="font-style:italic;">None</option>
+                        <option value="africasia">Africasia</option>
+                        <option value="freedom">Band of Freedom</option>
+                        <option value="extorris">Extorris</option>
+                        <option value="kastraea">Kastraea</option>
+                        <option value="majest">Majest</option>
+                        <option value="mausoleum">Mausoleum</option>
+                        <option value="naius">Naius</option>
+                        <option value="ngozi">Ngozi</option>
+                        <option value="usm">U.S.M.</option>
+                        <option value="other" style="font-style:italic;">Obscure</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        {{!-- Rank --}}
+        <div class="flex-group-center">
+            <label for="system.rank.value" class="resource-label">Rank</label>
+            <div class="flexrow flex-center flex-between">
+            <input type="text" name="system.rank.value" value="{{system.rank.value}}" data-dtype="Number"/>
+            </div>
+        </div>
+
+    </div>
+</div>

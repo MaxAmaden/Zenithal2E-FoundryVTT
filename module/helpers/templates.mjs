@@ -7,6 +7,9 @@
   return loadTemplates([
 
     // Actor partials.
+    "systems/zenithal2e/templates/actor/parts/actor-character-header.html",
+    "systems/zenithal2e/templates/actor/parts/actor-core.html",
+    "systems/zenithal2e/templates/actor/parts/actor-build.html",
     "systems/zenithal2e/templates/actor/parts/actor-features.html",
     "systems/zenithal2e/templates/actor/parts/actor-items.html",
     "systems/zenithal2e/templates/actor/parts/actor-spells.html",
