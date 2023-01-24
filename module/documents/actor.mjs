@@ -47,6 +47,8 @@ export class Zenithal2eActor extends Actor {
 
     const systemData = actorData.system;
 
+
+
     // Calculate attribute points spent.
     let pointsToBeSpent = 2 + (systemData.rank.value * 2);
     pointsToBeSpent -= systemData.attributes.durability.value;
@@ -60,6 +62,13 @@ export class Zenithal2eActor extends Actor {
     else systemData.pointsRemainingMessage = "[" + pointsToBeSpent + "] points remaining.";
     systemData.pointsRemainingMessage = "<p style=\"text-align:center; font-weight:bold\">" + systemData.pointsRemainingMessage + "</p>";
 
+
+    // Special feature for Rank X (-1).
+    let recallRank = systemData.rank.value;
+    if (recallRank < 0) { systemData.rank.value = 0; }
+
+
+
     // Calculate Resources.
     systemData.life.max = systemData.rank.value * ((50) + (5 * systemData.attributes.durability.value) + (2 * systemData.attributes.mass.value) + (1 * systemData.attributes.agility.value));
     if (systemData.armor.type == "armor_light") { systemData.life.max += 10 * systemData.rank.value; }
@@ -69,11 +78,17 @@ export class Zenithal2eActor extends Actor {
     else if (systemData.armor.type == "packs_heavy") { systemData.life.max += 15 * systemData.rank.value; }
     else if (systemData.armor.type == "robes_light") { systemData.life.max -= 10 * systemData.rank.value; }
     else if (systemData.armor.type == "robes_heavy") { systemData.life.max -= 25 * systemData.rank.value; }
+    if (systemData.rank.value == 0) { systemData.life.max = 25; }
+    if (recallRank < 0) { systemData.life.max = 10; }
+
+
 
     // Calculate Properties.
     systemData.damageMultiplier.value = (50) + (50 * systemData.rank.value);
+    if (recallRank < 0) { systemData.damageMultiplier.value = 25; }
 
     systemData.accuracy.value = (2 * systemData.rank.value) + (1 * systemData.attributes.precision.value);
+    if (recallRank < 0) { systemData.accuracy.value = -4; }
 
     systemData.healingFactor.value = (10 * systemData.rank.value) + (2 * systemData.attributes.durability.value);
 
@@ -97,6 +112,11 @@ export class Zenithal2eActor extends Actor {
     systemData.criticalResistance.value = 0;
     if (systemData.armor.type == "armor_medium") { systemData.criticalResistance.value += 1; }
     else if (systemData.armor.type == "armor_heavy") { systemData.criticalResistance.value += 2; }
+
+
+
+    // Special feature for Rank X (-1).
+    if (recallRank < 0) { systemData.rank.value = recallRank; }
   }
 
   /**
